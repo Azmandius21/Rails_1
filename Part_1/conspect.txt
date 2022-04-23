@@ -1,0 +1,39 @@
+Заголовки:
+request header(RqH) - заголовок запроса
+response header(RsH) - заголовок ответа
+general header(GH) - основной заголовок применим для запроса и ответа
+entity header(EH) - заголовок сущности применим для запроса и ответа. Для каждой части сообщения запроса или ответа
+
+	Accept (request header) -  для указания конкретных типов данных(media types), которые приемлемы для ответа. Т.е. ответ ограничен желаемыми  типами данных. Так же возможно указание приоритетов. Низкий приоритет - "*/*". Высокий приоритет - "type/subtype;q=1".
+	
+	Connection (general header) - указывает на состояние соединения после выполнения запроса-ответа (close/keep-alive)
+	
+	Content-Type (entity header for request/response header) - определяет MIME-type (строка к файлу, определяющая тип файла) рессурса
+	Content-Type: text/html; charset=utf-8
+Content-Type: multipart/form-data; boundary=something
+	
+	Content-Length (entity header for request/response header) - устанавливает размер сообщения в байтах. 1 символ - 1 байт
+	
+	User-Agent (request header)) - передается информация о клиентском приложении (название и версию приложения, операционную систему компьютера и язык. У «пауков» эта строка часто содержит URL и email-адрес, по которым веб-мастер может связаться с оператором «паука»).
+		
+	Cache-Control (general header) - определяет правило, которому следует механизм кэширования как со стороны запроса, так и со стороны ответа. Переопределяет алгоритм кэширования по умолчанию
+	
+	cache-request-directive =
+                            "no-cache" [ "=" <"> 1#field-name <"> ]
+                          | "no-store"
+                          | "max-age" "=" delta-seconds
+                          | "max-stale" [ "=" delta-seconds ]
+                          | "min-fresh" "=" delta-seconds
+                          | "only-if-cached"
+                          | cache-extension
+
+          cache-response-directive =
+                            "public"
+                          | "private" [ "=" <"> 1#field-name <"> ]
+                          | "no-cache" [ "=" <"> 1#field-name <"> ]
+                          | "no-store"
+                          | "no-transform"
+                          | "must-revalidate"
+                          | "proxy-revalidate"
+                          | "max-age" "=" delta-seconds
+                          | cache-extension

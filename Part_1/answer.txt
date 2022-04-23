@@ -1,0 +1,96 @@
+request 1 
+
+aziz@aziz-P55-UD3:~$ ncat -C httpbin.org 80
+GET /anything HTTP/1.1
+Host: httpbin.org
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 18:46:42 GMT
+Content-Type: application/json
+Content-Length: 287
+Connection: keep-alive
+Server: gunicorn/19.9.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+
+{
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Host": "httpbin.org", 
+    "X-Amzn-Trace-Id": "Root=1-62644992-47e57d901af63a6a6a4b5dbc"
+  }, 
+  "json": null, 
+  "method": "GET", 
+  "origin": "212.104.76.102", 
+  "url": "http://httpbin.org/anything"
+}
+
+request 2
+
+aziz@aziz-P55-UD3:~$ ncat -C httpbin.org 80
+GET /anything HTTP/1.1
+Host: httpbin.org
+Accept-Language: ru
+
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 19:34:58 GMT
+Content-Type: application/json
+Content-Length: 317
+Connection: keep-alive
+Server: gunicorn/19.9.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+
+{
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept-Language": "ru", 
+    "Host": "httpbin.org", 
+    "X-Amzn-Trace-Id": "Root=1-626454e2-623b051954b33c2c268ae859"
+  }, 
+  "json": null, 
+  "method": "GET", 
+  "origin": "212.104.76.102", 
+  "url": "http://httpbin.org/anything"
+}
+
+
+request 3
+
+aziz@aziz-P55-UD3:~$ ncat -C httpbin.org 80
+POST /anything HTTP/1.1
+Host: httpbin.org
+Content-Length: 8
+
+name=Azi
+HTTP/1.1 200 OK
+Date: Sat, 23 Apr 2022 19:37:30 GMT
+Content-Type: application/json
+Content-Length: 324
+Connection: keep-alive
+Server: gunicorn/19.9.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+
+{
+  "args": {}, 
+  "data": "name=Azi", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Content-Length": "8", 
+    "Host": "httpbin.org", 
+    "X-Amzn-Trace-Id": "Root=1-62645569-441efe35616721346643e1be"
+  }, 
+  "json": null, 
+  "method": "POST", 
+  "origin": "212.104.76.102", 
+  "url": "http://httpbin.org/anything"
+}
+
